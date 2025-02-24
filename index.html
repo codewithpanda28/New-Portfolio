@@ -59,6 +59,29 @@
         </div>
     </nav>
 
+    <style>
+        @media screen and (max-width: 768px) {
+            .nav-items {
+                position: fixed;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                height: calc(100vh - 500px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                overflow-x: hidden;
+            }
+            
+            .nav-items.show {
+                transform: translateX(0);
+            }
+        }
+    </style>
     <script>
         function toggleMenu() {
             const navItems = document.getElementById('navItems');
@@ -211,14 +234,14 @@
                         <div class="experience-chips">
                             <div class="exp-chip">
                                 <span class="exp-number">3+</span>
-                                <span class="exp-label">Years of Experience</span>
+                                <span class="exp-label">Months of Experience</span>
                             </div>
                             <div class="exp-chip">
-                                <span class="exp-number">50+</span>
+                                <span class="exp-number">2+</span>
                                 <span class="exp-label">Projects Completed</span>
                             </div>
                             <div class="exp-chip">
-                                <span class="exp-number">30+</span>
+                                <span class="exp-number">3+</span>
                                 <span class="exp-label">Happy Clients</span>
                             </div>
                         </div>
@@ -240,8 +263,8 @@
                         </a>
 
                         <div class="resume-download">
-                            <a href="#" class="download-btn">
-                                <div class="download-icon">
+                            <a href="#" class="download-btn cta-button secondary">
+                                <div class="download-icon button-icon ">
                                     <i class="fas fa-file-download"></i>
                                 </div>
                                 <div class="download-text">
@@ -304,7 +327,7 @@
 
                             <div class="profile-stats">
                                 <div class="stat-item">
-                                    <span class="stat-value">30+</span>
+                                    <span class="stat-value">20+</span>
                                     <span class="stat-label">Github Repos</span>
                                 </div>
                                 <div class="stat-item">
@@ -383,11 +406,11 @@
                 </div>
 
                 <div class="skills-grid">
-                    <!-- React -->
+                    <!-- Javascript -->
                     <div class="skill-card" data-aos="zoom-in">
                         <div class="skill-icon-wrapper">
                             <div class="skill-icon">
-                                <i class="fab fa-react"></i>
+                                <i class="fab fa-js"></i>
                             </div>
                             <svg class="skill-circle" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="45" />
@@ -395,29 +418,29 @@
                             </svg>
                         </div>
                         <div class="skill-content">
-                            <h4>React.js</h4>
-                            <div class="skill-level">Expert - 95%</div>
+                            <h4>JavaScript</h4>
+                            <div class="skill-level">Expert - 80%</div>
                             <div class="skill-tags">
-                                <span>Redux</span>
-                                <span>Next.js</span>
-                                <span>Hooks</span>
+                                <span>ES6+</span>
+                                <span>Async/Await</span>
+                                <span>DOM Manipulation</span>
                             </div>
                         </div>
                         <div class="skill-details">
                             <ul>
-                                <li><i class="fas fa-check"></i>Component Architecture</li>
-                                <li><i class="fas fa-check"></i>State Management</li>
-                                <li><i class="fas fa-check"></i>Performance Optimization</li>
-                                <li><i class="fas fa-check"></i>Server-Side Rendering</li>
+                                <li><i class="fas fa-check"></i>Mastery of ES6+ (Arrow functions, Spread/Rest, Destructuring)</li>
+                                <li><i class="fas fa-check"></i> Handling asynchronous operations using Promises & Async/Await</li>
+                                <li><i class="fas fa-check"></i>Optimized DOM manipulation for efficient rendering</li>
+                                <li><i class="fas fa-check"></i>Event-driven programming for dynamic web applications</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- JavaScript -->
+                    <!--  React.js -->
                     <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
                         <div class="skill-icon-wrapper">
                             <div class="skill-icon">
-                                <i class="fab fa-js"></i>
+                                <i class="fab fa-react"></i>
                             </div>
                             <svg class="skill-circle" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="45" />
@@ -425,29 +448,29 @@
                             </svg>
                         </div>
                         <div class="skill-content">
-                            <h4>JavaScript</h4>
-                            <div class="skill-level">Expert - 90%</div>
+                            <h4>React.js</h4>
+                            <div class="skill-level">Expert - 70%</div>
                             <div class="skill-tags">
-                                <span>ES6+</span>
-                                <span>TypeScript</span>
-                                <span>jQuery</span>
+                                <span>Hooks</span>
+                                <span>State Management</span>
+                                <span>Next.js</span>
                             </div>
                         </div>
                         <div class="skill-details">
                             <ul>
-                                <li><i class="fas fa-check"></i>Modern ES6+ Features</li>
-                                <li><i class="fas fa-check"></i>Async Programming</li>
-                                <li><i class="fas fa-check"></i>DOM Manipulation</li>
-                                <li><i class="fas fa-check"></i>Design Patterns</li>
+                                <li><i class="fas fa-check"></i> Reusable component-based architecture</li>
+                                <li><i class="fas fa-check"></i>State management using React Hooks & Context API</li>
+                                <li><i class="fas fa-check"></i>Optimized performance with Memoization & Lazy Loading</li>
+                                <li><i class="fas fa-check"></i>Integrating APIs & fetching data dynamically</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Vue.js -->
+                    <!--  Next.js -->
                     <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
                         <div class="skill-icon-wrapper">
                             <div class="skill-icon">
-                                <i class="fab fa-vuejs"></i>
+                                <i class="fas fa-server"></i>
                             </div>
                             <svg class="skill-circle" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="45" />
@@ -455,20 +478,21 @@
                             </svg>
                         </div>
                         <div class="skill-content">
-                            <h4>Vue.js</h4>
-                            <div class="skill-level">Intermediate - 85%</div>
+                            <h4>Next.js</h4>
+                            <div class="skill-level">Expert - 80%</div>
                             <div class="skill-tags">
-                                <span>Composition API</span>
-                                <span>Vue Router</span>
-                                <span>Vuex</span>
+                                <span>SSR</span>
+                                <span>ISR</span>
+                                <span>API Routes</span>
                             </div>
                         </div>
                         <div class="skill-details">
                             <ul>
-                                <li><i class="fas fa-check"></i>Reactivity</li>
-                                <li><i class="fas fa-check"></i>Component Architecture</li>
-                                <li><i class="fas fa-check"></i>Server-Side Rendering</li>
-                                <li><i class="fas fa-check"></i>Testing</li>
+                                <li><i class="fas fa-check"></i>Server-side rendering (SSR) & Static Site Generation (SSG)</li>
+                                <li><i class="fas fa-check"></i>Building API routes for backend functionalities</li>
+                                <li><i class="fas fa-check"></i>Optimized performance with Incremental Static Regeneration (ISR)</li>
+                                <li><i class="fas fa-check"></i>SEO-friendly page optimizations
+                                </li>
                             </ul>
                         </div>
 
@@ -499,28 +523,58 @@
                             </div>
                             <div class="skill-content">
                                 <h4>Node.js</h4>
-                                <div class="skill-level">Advanced - 88%</div>
+                                <div class="skill-level">Intermediate - 60%</div>
                                 <div class="skill-tags">
-                                    <span>Express</span>
-                                    <span>MongoDB</span>
+                                    <span>Asynchronous</span>
+                                    <span>REST API</span>
+                                    <span>Event-driven</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>Building scalable backend services</li>
+                                    <li><i class="fas fa-check"></i>Handling asynchronous operations efficiently</li>
+                                    <li><i class="fas fa-check"></i> Optimized API performance with caching & compression</li>
+                                    <li><i class="fas fa-check"></i>Integrating databases & handling authentication</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Express.js -->
+                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code-branch"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="85" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Express.js</h4>
+                                <div class="skill-level">Intermediate - 60%</div>
+                                <div class="skill-tags">
                                     <span>REST APIs</span>
+                                    <span>Middleware</span>
+                                    <span>Authentication</span>
                                 </div>
                             </div>
                             <div class="skill-details">
                                 <ul>
-                                    <li><i class="fas fa-check"></i>RESTful API Design</li>
-                                    <li><i class="fas fa-check"></i>Database Integration</li>
-                                    <li><i class="fas fa-check"></i>Authentication</li>
-                                    <li><i class="fas fa-check"></i>Microservices</li>
+                                    <li><i class="fas fa-check"></i>Creating RESTful APIs with Express.js</li>
+                                    <li><i class="fas fa-check"></i>Middleware implementation for security & logging</li>
+                                    <li><i class="fas fa-check"></i>Session management & authentication (JWT, OAuth)</li>
+                                    <li><i class="fas fa-check"></i> Handling errors & optimizing performance</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Python -->
+                        <!-- MongoDB -->
                         <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
                             <div class="skill-icon-wrapper">
                                 <div class="skill-icon">
-                                    <i class="fab fa-python"></i>
+                                    <i class="fas fa-database"></i>
                                 </div>
                                 <svg class="skill-circle" viewBox="0 0 100 100">
                                     <circle cx="50" cy="50" r="45" />
@@ -528,50 +582,20 @@
                                 </svg>
                             </div>
                             <div class="skill-content">
-                                <h4>Python</h4>
-                                <div class="skill-level">Advanced - 85%</div>
+                                <h4>MongoDB</h4>
+                                <div class="skill-level">Intermediate - 65%</div>
                                 <div class="skill-tags">
-                                    <span>Django</span>
-                                    <span>Flask</span>
-                                    <span>FastAPI</span>
+                                    <span>NoSQL</span>
+                                    <span>Mongoose</span>
+                                    <span>Database Optimization</span>
                                 </div>
                             </div>
                             <div class="skill-details">
                                 <ul>
-                                    <li><i class="fas fa-check"></i>Web Frameworks</li>
-                                    <li><i class="fas fa-check"></i>Data Processing</li>
-                                    <li><i class="fas fa-check"></i>API Development</li>
-                                    <li><i class="fas fa-check"></i>Automation</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Python -->
-                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="skill-icon-wrapper">
-                                <div class="skill-icon">
-                                    <i class="fab fa-python"></i>
-                                </div>
-                                <svg class="skill-circle" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="45" />
-                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="85" />
-                                </svg>
-                            </div>
-                            <div class="skill-content">
-                                <h4>Python</h4>
-                                <div class="skill-level">Advanced - 85%</div>
-                                <div class="skill-tags">
-                                    <span>Django</span>
-                                    <span>Flask</span>
-                                    <span>FastAPI</span>
-                                </div>
-                            </div>
-                            <div class="skill-details">
-                                <ul>
-                                    <li><i class="fas fa-check"></i>Web Frameworks</li>
-                                    <li><i class="fas fa-check"></i>Data Processing</li>
-                                    <li><i class="fas fa-check"></i>API Development</li>
-                                    <li><i class="fas fa-check"></i>Automation</li>
+                                    <li><i class="fas fa-check"></i>Designing NoSQL database models for web applications</li>
+                                    <li><i class="fas fa-check"></i>Efficient data retrieval with indexed queries</li>
+                                    <li><i class="fas fa-check"></i> Integration with Node.js using Mongoose</li>
+                                    <li><i class="fas fa-check"></i>Handling transactions & data security</li>
                                 </ul>
                             </div>
                         </div>
@@ -603,29 +627,60 @@
                                 </svg>
                             </div>
                             <div class="skill-content">
-                                <h4>UI/UX Design</h4>
-                                <div class="skill-level">Expert - 92%</div>
+                                <h4>Tailwind CSS</h4>
+                                <div class="skill-level">Expert - 90%</div>
                                 <div class="skill-tags">
-                                    <span>Figma</span>
-                                    <span>Adobe XD</span>
-                                    <span>Sketch</span>
+                                    <span>Utility-first</span>
+                                    <span>Responsive</span>
+                                    <span>Dark Mode</span>
                                 </div>
                             </div>
                             <div class="skill-details">
                                 <ul>
-                                    <li><i class="fas fa-check"></i>Wireframing</li>
-                                    <li><i class="fas fa-check"></i>Prototyping</li>
-                                    <li><i class="fas fa-check"></i>User Research</li>
-                                    <li><i class="fas fa-check"></i>Design Systems</li>
+                                    <li><i class="fas fa-check"></i> Writing clean and fast utility-based styles</li>
+                                    <li><i class="fas fa-check"></i>Customizing Tailwind themes & colors</li>
+                                    <li><i class="fas fa-check"></i> Implementing dark mode & responsive design
+                                    </li>
+                                    <!-- <li><i class="fas fa-check"></i>Design Systems</li> -->
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Development Tools -->
+                        <!-- Figma -->
                         <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
                             <div class="skill-icon-wrapper">
                                 <div class="skill-icon">
-                                    <i class="fas fa-tools"></i>
+                                    <i class="fab fa-figma"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="90" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Figma</h4>
+                                <div class="skill-level">Advanced - 80%</div>
+                                <div class="skill-tags">
+                                    <span>UI/UX Design</span>
+                                    <span>Prototyping</span>
+                                    <span>Wireframing</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Creating UI/UX wireframes for web & mobile</li>
+                                    <li><i class="fas fa-check"></i>Prototyping interactive designs for user experience</li>
+                                    <li><i class="fas fa-check"></i> Implementing design systems for consistency</li>
+                                    <!-- <li><i class="fas fa-check"></i>DevOps</li> -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Git & GitHub -->
+                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fab fa-git-alt"></i>
                                 </div>
                                 <svg class="skill-circle" viewBox="0 0 100 100">
                                     <circle cx="50" cy="50" r="45" />
@@ -634,49 +689,19 @@
                             </div>
                             <div class="skill-content">
                                 <h4>Development Tools</h4>
-                                <div class="skill-level">Advanced - 90%</div>
+                                <div class="skill-level">Intermediate - 75%</div>
                                 <div class="skill-tags">
-                                    <span>Git</span>
-                                    <span>Docker</span>
-                                    <span>AWS</span>
+                                    <span>Version Control</span>
+                                    <span>CI/CD</span>
+                                    <span>GitHub Actions</span>
                                 </div>
                             </div>
                             <div class="skill-details">
                                 <ul>
-                                    <li><i class="fas fa-check"></i>Version Control</li>
-                                    <li><i class="fas fa-check"></i>CI/CD</li>
-                                    <li><i class="fas fa-check"></i>Cloud Services</li>
-                                    <li><i class="fas fa-check"></i>DevOps</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Development Tools -->
-                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="skill-icon-wrapper">
-                                <div class="skill-icon">
-                                    <i class="fas fa-tools"></i>
-                                </div>
-                                <svg class="skill-circle" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="45" />
-                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="90" />
-                                </svg>
-                            </div>
-                            <div class="skill-content">
-                                <h4>Development Tools</h4>
-                                <div class="skill-level">Advanced - 90%</div>
-                                <div class="skill-tags">
-                                    <span>Git</span>
-                                    <span>Docker</span>
-                                    <span>AWS</span>
-                                </div>
-                            </div>
-                            <div class="skill-details">
-                                <ul>
-                                    <li><i class="fas fa-check"></i>Version Control</li>
-                                    <li><i class="fas fa-check"></i>CI/CD</li>
-                                    <li><i class="fas fa-check"></i>Cloud Services</li>
-                                    <li><i class="fas fa-check"></i>DevOps</li>
+                                    <li><i class="fas fa-check"></i> Managing repositories & collaborative coding</li>
+                                    <li><i class="fas fa-check"></i>Implementing Git branching strategies (feature, develop, main)</li>
+                                    <li><i class="fas fa-check"></i>Automating deployments using GitHub Actions</li>
+                                    <!-- <li><i class="fas fa-check"></i>DevOps</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -718,7 +743,7 @@
                             <h3>E-Commerce Platform</h3>
                             <div class="project-badge">Featured</div>
                         </div>
-                        <p>A modern e-commerce platform with advanced features and seamless user experience.</p>
+                        <p>A modern e-commerce platform with advanced features.</p>
                         <div class="tech-stack">
                             <span><i class="fab fa-react"></i>React</span>
                             <span><i class="fab fa-node-js"></i>Node.js</span>
@@ -792,7 +817,7 @@
     <section id="contact" class="contact-section">
         <div class="section-container">
             <div class="section-header" data-aos="fade-up">
-                <!-- <span class="section-badge">Contact</span> -->
+                 <span class="section-badge">Contact</span>
                 <div class="header-line"></div>
                 <h2>Let's Connect</h2>
             </div>
@@ -806,7 +831,7 @@
                             </div>
                             <div class="method-details">
                                 <h3>Email</h3>
-                                <p>contact@example.com</p>
+                                <p>codewithpanda28@gmail.com</p>
                             </div>
                         </div>
 
@@ -816,7 +841,7 @@
                             </div>
                             <div class="method-details">
                                 <h3>Location</h3>
-                                <p>New York, USA</p>
+                                <p>Jharkhand, India</p>
                             </div>
                         </div>
                     </div>
@@ -906,10 +931,10 @@
                 </form>
             </div>
         </div>
-    </section>
+    </section> 
 
     <!-- Add this after your existing stack-items div -->
-    <div class="stack-modal">
+    <!-- <div class="stack-modal">
         <div class="stack-modal-content">
             <div class="modal-header">
                 <h3>All Technologies</h3>
@@ -950,7 +975,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

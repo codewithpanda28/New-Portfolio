@@ -12,18 +12,6 @@
 /* Theme Variables */
 :root {
     /* Light Theme (Default) */
-    --bg-color: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --primary-color: #ff3333;
-    --primary-rgb: 255, 51, 51;
-    --nav-bg: rgba(255, 255, 255, 0.8);
-    --card-bg: rgba(0, 0, 0, 0.05);
-    --border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
     --bg-color: #121212;
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
@@ -33,6 +21,18 @@
     --card-bg: rgba(255, 255, 255, 0.05);
     --border-color: rgba(255, 255, 255, 0.1);
 }
+
+/* Dark Theme */
+/* [data-theme="dark"] {
+    --bg-color: #121212;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --primary-color: #ff4444;
+    --primary-rgb: 255, 68, 68;
+    --nav-bg: rgba(18, 18, 18, 0.8);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+} */
 
 /* Blue Theme */
 /* [data-theme="blue"] {
