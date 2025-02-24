@@ -5,20 +5,39 @@ AOS.init({
     offset: 100
 });
 
-// Mobile Menu Toggle
-const menuBtn = document.querySelector('.menu-btn');
-const navItems = document.querySelector('.nav-items');
+// Mobile Menu Animation
+document.addEventListener('DOMContentLoaded', () => {
 
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    navItems.classList.toggle('active');
-});
 
-// Close menu when clicking a link
-document.querySelectorAll('.nav-items a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        navItems.classList.remove('active');
+    const navItems = document.querySelector('.nav-items');
+    const navLinks = document.querySelectorAll('.nav-link');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        menuBtn.classList.toggle('open');
+        navItems.classList.toggle('active');
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        });
+    });
+
+
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+            toggleMenu();
+        }
     });
 });
 
@@ -37,7 +56,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Navbar scroll effect
-const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector('.animate-navbar');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
@@ -56,6 +75,12 @@ window.addEventListener('scroll', () => {
         navbar.classList.add('scroll-up');
     }
     lastScroll = currentScroll;
+
+    if (currentScroll > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
 });
 
 // Form validation and animation
@@ -143,31 +168,31 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         });
 });
 
-// Preloader
-const preloader = document.querySelector('.preloader');
-const counter = document.querySelector('.counter');
-let count = 0;
 
-const updateCounter = () => {
-    counter.textContent = count + '%';
-    if (count < 100) {
-        count++;
-        setTimeout(updateCounter, 20);
-    } else {
-        preloader.classList.add('hidden');
-    }
-};
+// const preloader = document.querySelector('.preloader');
+// const counter = document.querySelector('.counter');
+// let count = 0;
 
-updateCounter();
+// const updateCounter = () => {
+//     counter.textContent = count + '%';
+//     if (count < 100) {
+//         count++;
+//         setTimeout(updateCounter, 20);
+//     } else {
+//         preloader.classList.add('hidden');
+//     }
+// };
+
+// updateCounter();
 
 // Custom cursor
-const cursor = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
+// const cursor = document.querySelector('.cursor');
+// const cursorFollower = document.querySelector('.cursor-follower');
 
-document.addEventListener('mousemove', (e) => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
+// document.addEventListener('mousemove', (e) => {
+//     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+//     cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+// });
 
 // Add hover effect to links
 document.querySelectorAll('a, button').forEach(link => {
@@ -182,41 +207,41 @@ document.querySelectorAll('a, button').forEach(link => {
     });
 });
 
-// Typing animation
-const roles = ['Web Developer', 'UI/UX Designer', 'Full Stack Developer'];
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingDelay = 100;
-const erasingDelay = 50;
-const newRoleDelay = 2000;
 
-function typeRole() {
-    const currentRole = roles[roleIndex];
-    const typedText = document.querySelector('.typed-text');
-    
-    if (isDeleting) {
-        charIndex--;
-        typedText.textContent = currentRole.substring(0, charIndex);
-    } else {
-        charIndex++;
-        typedText.textContent = currentRole.substring(0, charIndex);
-    }
-    
-    let typeSpeed = isDeleting ? erasingDelay : typingDelay;
-    
-    if (!isDeleting && charIndex === currentRole.length) {
-        typeSpeed = newRoleDelay;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-    }
-    
-    setTimeout(typeRole, typeSpeed);
-}
+// const roles = ['Web Developer', 'UI/UX Designer', 'Full Stack Developer'];
+// let roleIndex = 0;
+// let charIndex = 0;
+// let isDeleting = false;
+// const typingDelay = 100;
+// const erasingDelay = 50;
+// const newRoleDelay = 2000;
 
-typeRole();
+// function typeRole() {
+//     const currentRole = roles[roleIndex];
+//     const typedText = document.querySelector('.typed-text');
+    
+//     if (isDeleting) {
+//         charIndex--;
+//         typedText.textContent = currentRole.substring(0, charIndex);
+//     } else {
+//         charIndex++;
+//         typedText.textContent = currentRole.substring(0, charIndex);
+//     }
+    
+//     let typeSpeed = isDeleting ? erasingDelay : typingDelay;
+    
+//     if (!isDeleting && charIndex === currentRole.length) {
+//         typeSpeed = newRoleDelay;
+//         isDeleting = true;
+//     } else if (isDeleting && charIndex === 0) {
+//         isDeleting = false;
+//         roleIndex = (roleIndex + 1) % roles.length;
+//     }
+    
+//     setTimeout(typeRole, typeSpeed);
+// }
+
+// typeRole();
 
 // Skill bars animation
 const skillBars = document.querySelectorAll('.skill-progress');
@@ -270,34 +295,7 @@ function animateNoise() {
 animateNoise();
 
 // Project Modal
-const projects = [
-    {
-        id: 1,
-        title: 'E-Commerce Platform',
-        description: 'A full-stack e-commerce solution built with React and Node.js. Features include user authentication, product management, shopping cart, payment integration, and order tracking. The platform is fully responsive and provides a seamless shopping experience.',
-        images: [
-            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800',
-            'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800',
-            'https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&w=800'
-        ],
-        tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux', 'Stripe'],
-        liveLink: '#',
-        codeLink: '#'
-    },
-    {
-        id: 2,
-        title: 'Task Management App',
-        description: 'A beautiful and intuitive task management application that helps users organize their daily activities. Built with React and Firebase, it includes features like task categories, due dates, priority levels, and real-time updates.',
-        images: [
-            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800',
-            'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800',
-            'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800'
-        ],
-        tags: ['React', 'Firebase', 'Material-UI', 'Context API', 'Cloud Functions'],
-        liveLink: '#',
-        codeLink: '#'
-    }
-];
+
 
 const modalOverlay = document.querySelector('.modal-overlay');
 const modal = document.querySelector('.modal');
@@ -394,3 +392,88 @@ document.getElementById('resumeBtn').addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href = 'resume.html';
 });
+
+// Initialize particles
+function initParticles() {
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach((particle, index) => {
+        const delay = Math.random() * 5;
+        const duration = 15 + Math.random() * 10;
+        const size = 3 + Math.random() * 5;
+        
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = delay + 's';
+        particle.style.animationDuration = duration + 's';
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+    });
+}
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.animate-navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Initialize particles on load
+document.addEventListener('DOMContentLoaded', initParticles);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const skillBoxes = document.querySelectorAll('.skill-box');
+    
+    skillBoxes.forEach(box => {
+        const progressBar = box.querySelector('.progress-bar');
+        const progress = progressBar.getAttribute('data-progress');
+        progressBar.style.setProperty('--progress', progress);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBoxes.forEach(box => observer.observe(box));
+});
+
+// Stack Modal Functionality
+const stackCount = document.querySelector('.stack-count');
+const stackModal = document.querySelector('.stack-modal');
+const closeModal = document.querySelector('.close-modal');
+
+stackCount.addEventListener('click', () => {
+    stackModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+closeModal.addEventListener('click', () => {
+    stackModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+stackModal.addEventListener('click', (e) => {
+    if (e.target === stackModal) {
+        stackModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && stackModal.classList.contains('active')) {
+        stackModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+
+
+
+
+

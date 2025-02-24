@@ -1,512 +1,956 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Portfolio</title>
+    <title>Akash Kumar - Portfolio</title>
+    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Typed.js Library for Typing Animation -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("9V4RhGDUCUauho_oJ");
-        })();
-    </script>
+
 </head>
+
 <body>
     <!-- Navigation -->
+    <!-- <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo-wrapper">
+                <span class="logo-text">Code<span class="highlight">Panda</span></span>
+            </a>
+
+            <div class="nav-items">
+                <a href="#home" class="nav-link">Home</a> -->
+                <!-- <a href="#about" class="nav-link">About</a> -->
+                <!-- <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div> -->
+
+            <!-- <button class="menu-btn" aria-label="Toggle Menu">
+                <span></span>
+            </button> -->
+        <!-- </div>
+    </nav> -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">
-                <span class="highlight">P</span>ortfolio
-            </div>
-            <div class="nav-items">
-                <div class="theme-selector">
-                    <select id="themeSelect" class="theme-select">
-                        <option value="light">Light Mode</option>
-                        <option value="dark">Dark Mode</option>
-                        <option value="blue">Blue Theme</option>
-                        <option value="purple">Purple Theme</option>
-                        <option value="green">Green Theme</option>
-                    </select>
-                    <i class="fas fa-palette theme-icon"></i>
-                </div>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </div>
-            <div class="menu-btn">
-                <div class="menu-btn__lines"></div>
+            <a href="#" class="logo-wrapper">
+                <span class="logo-text">Code<span class="highlight">Panda</span></span>
+            </a>
+    
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+    
+            <div class="nav-items" id="navItems">
+                <a href="#home" class="nav-link" onclick="closeMenu()">Home</a>
+                <a href="#skills" class="nav-link" onclick="closeMenu()">Skills</a>
+                <a href="#projects" class="nav-link" onclick="closeMenu()">Projects</a>
+                <a href="#contact" class="nav-link" onclick="closeMenu()">Contact</a>
             </div>
         </div>
     </nav>
 
+    <script>
+        function toggleMenu() {
+            const navItems = document.getElementById('navItems');
+            const menuIcon = document.getElementById('menuIcon');
+            navItems.classList.toggle('show');
+            
+            if (navItems.classList.contains('show')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        function closeMenu() {
+            const navItems = document.getElementById('navItems');
+            const menuIcon = document.getElementById('menuIcon');
+            navItems.classList.remove('show');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    </script>
+
+    <style>
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-content {
+                position: relative;
+            }
+            
+            .menu-btn {
+                display: block;
+                color: #fff;
+                font-size: 24px;
+            }
+            
+            .nav-items {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80vw;
+                height: 100vh;
+                background: #1a1a1a;
+                padding: 20px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                z-index: 1000;
+                transition: right 0.3s ease-in-out;
+            }
+            
+            .nav-items.show {
+                display: flex;
+                right: 0;
+                animation: slideIn 0.3s ease-in-out;
+            }
+            
+            @keyframes slideIn {
+                from {
+                    right: -100%;
+                }
+                to {
+                    right: 0;
+                }
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 4px;
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-link:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: none;
+            }
+        }
+    </style>    
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <!-- <div class="circle circle-3"></div> -->
-        </div>
-        
-        <div class="hero-text">
-            <div class="tag" data-aos="fade-down">
-                <i class="fas fa-code"></i> Welcome to my Creative Space
-            </div>
-            <h1 data-aos="fade-up" data-aos-delay="200">
-                Hi, I'm a
-                <div class="animated-text">
-                    <span class="typed-text"></span>
-                </div>
-            </h1>
-            <div class="description" data-aos="fade-up" data-aos-delay="400">
-                <div class="desc-item">
-                    <i class="fas fa-rocket"></i>
-                    <span>Transforming ideas into digital reality</span>
-                </div>
-                <div class="desc-item">
-                    <i class="fas fa-paint-brush"></i>
-                    <span>Creating elegant and responsive designs</span>
-                </div>
-                <div class="desc-item">
-                    <i class="fas fa-cogs"></i>
-                    <span>Building robust and scalable solutions</span>
-                </div>
-            </div>
-            
-            <!-- <div class="skill-tags" data-aos="fade-up" data-aos-delay="500">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-            </div> -->
-
-            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="600">
-                <a href="#projects" class="btn primary">
-                    <i class="fas fa-code btn-icon"></i>
-                    View Work
-                </a>
-                <a href="#contact" class="btn secondary">
-                    <i class="fas fa-paper-plane btn-icon"></i>
-                    Let's Talk
-                </a>
-                <button onclick="window.location.href='resume.html'" class="btn accent">
-                    <i class="fas fa-file-alt btn-icon"></i>
-                    Resume
-                </button>
-            </div>
-
-            <div class="social-icons floating" data-aos="fade-up" data-aos-delay="700">
-                <a href="https://github.com/codewithpanda28?tab=repositories" class="social-icon" title="GitHub">
-                    <div class="icon-background"></div>
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/codewithpanda28/" class="social-icon" title="LinkedIn">
-                    <div class="icon-background"></div>
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.youtube.com/@NexCodeUI?themeRefresh=1" class="social-icon" title="YouTube">
-                    <div class="icon-background"></div>
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                <a href="https://www.instagram.com/panda_creation_29?igsh=MXoydTd4cjF5MnFq" class="social-icon" title="Instagram">
-                    <div class="icon-background"></div>
-                    <i class="fab fa-instagram"></i>
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-            <div class="hero-image-container">
-                <img src="assets/1.jpg" alt="Developer" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover;">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="floating-icons">
-                <i class="fab fa-html5" title="HTML5"></i>
-                <i class="fab fa-css3-alt" title="CSS3"></i>
-                <i class="fab fa-js" title="JavaScript"></i>
-                <i class="fab fa-react" title="React"></i>
-                <i class="fab fa-node-js" title="Node.js"></i>
-                
-            </div>
-            <div class="experience-badge">
-                <a href="https://www.youtube.com" target="_blank">
-                    <span class="number">
-                        <i class="fab fa-youtube"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-        <!-- skill section -->
-        <section id="skills" class="skills">   <div class="skills-showcase">
-            <h3>My Skills</h3>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Frontend</h4>
-                    <div class="skill-items">
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
+        <div class="hero-wrapper">
+            <div class="hero-left">
+                <div class="intro-text" data-aos="fade-up">
+                    <div class="intro-badge">
+                        <div class="badge-content">
+                            <span class="badge-icon">👋</span>
+                            <span class="badge-text">Hi, I'm Akash Kumar</span>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
+                        <div class="badge-status">
+                            <span class="status-dot"></span>
+                            <span>Available for Work</span>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <!-- <span class="title-line"></span> -->
+                        <!-- <span class="title-line">Experiences with</span> -->
+                        <span class="title-line accent">Code & Creativity</span>
+                    </h1>
+
+                    <div class="hero-subtitle">
+                        <div class="subtitle-wrapper">
+                            <span class="subtitle-prefix">Specialized in</span>
+                            <div class="typing-wrapper">
+                                <span class="typed"></span>
+                            </div>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
+                    </div>
+
+                    <div class="hero-description">
+                        <p class="description-text">
+                            Passionate Full Stack Developer & UI/UX Designer crafting innovative digital solutions.
+                            Let's turn your ideas into reality.
+                        </p>
+
+                        <div class="experience-chips">
+                            <div class="exp-chip">
+                                <span class="exp-number">3+</span>
+                                <span class="exp-label">Years of Experience</span>
+                            </div>
+                            <div class="exp-chip">
+                                <span class="exp-number">50+</span>
+                                <span class="exp-label">Projects Completed</span>
+                            </div>
+                            <div class="exp-chip">
+                                <span class="exp-number">30+</span>
+                                <span class="exp-label">Happy Clients</span>
+                            </div>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="500">
-                            <i class="fab fa-bootstrap"></i>
-                            <span>Bootstrap</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="cta-button primary">
+                            <span>View Projects</span>
+                            <div class="button-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </a>
+
+                        <a href="#contact" class="cta-button secondary">
+                            <span>Let's Talk</span>
+                            <div class="button-icon">
+                                <i class="fas fa-message"></i>
+                            </div>
+                        </a>
+
+                        <div class="resume-download">
+                            <a href="#" class="download-btn">
+                                <div class="download-icon">
+                                    <i class="fas fa-file-download"></i>
+                                </div>
+                                <div class="download-text">
+                                    <span>Download CV</span>
+                                    <!-- <small>Select Format</small> -->
+                                </div>
+                            </a>
+                            <div class="format-options">
+                                <a href="resume.pdf" class="format-option pdf" target="_blank">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>PDF Format</span>
+                                </a>
+                                <a href="resume.jpg" class="format-option image" target="_blank">
+                                    <i class="fas fa-file-image"></i>
+                                    <span>Image Format</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="stack-label">Tech Stack</div>
+                        <div class="stack-items">
+                            <div class="stack-item" data-tooltip="React.js">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="stack-item" data-tooltip="Node.js">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <div class="stack-item" data-tooltip="JavaScript">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="stack-item" data-tooltip="Python">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="stack-count">+10 more</div>
                         </div>
                     </div>
                 </div>
-    
-                <div class="skill-category">
-                    <h4>Backend</h4>
-                    <div class="skill-items">
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
+            </div>
+
+            <div class="hero-right">
+                <div class="profile-card" data-aos="fade-left">
+                    <div class="card-header">
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <!-- <span>Open to Work</span> -->
                         </div>
-                      
-                      
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
+                    </div>
+
+                    <div class="card-body">
+                        <div class="profile-image-container">
+                            <img src="assets/2.jpg" alt="Profile" class="profile-image">
+                            <div class="image-decoration"></div>
+                        </div>
+
+                        <div class="profile-info">
+                            <h3 class="profile-name">Akash Kumar</h3>
+                            <p class="profile-title">Full Stack Developer</p>
+
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">30+</span>
+                                    <span class="stat-label">Github Repos</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">1.18K+</span>
+                                    <span class="stat-label">YT Subscribers</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://github.com/codewithpanda28" class="social-link github" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>Github</span>
+                            </a>
+                            <a href="https://youtube.com/@NexCodeUI" class="social-link youtube" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                            <a href="https://linkedin.com/in/codewithpanda28" class="social-link linkedin"
+                                target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievement-cards">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Clean Code</h4>
+                            <p>Writing maintainable & scalable code</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Fast Delivery</h4>
+                            <p>Quick turnaround time for projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="hero-background">
+            <div class="gradient-sphere"></div>
+            <div class="grid-overlay"></div>
+            <div class="particles"></div>
+        </div> -->
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="header-line"></div>
+                <h2>Technical Proficiency</h2>
+                <p>Mastering Modern Technologies</p>
+            </div>
+
+            <!-- Frontend Development -->
+            <div class="skills-category" data-aos="fade-up">
+                <div class="category-header">
+                    <div class="header-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Building responsive and interactive user interfaces</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- React -->
+                    <div class="skill-card" data-aos="zoom-in">
+                        <div class="skill-icon-wrapper">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <svg class="skill-circle" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" />
+                                <circle class="progress" cx="50" cy="50" r="45" data-percent="95" />
+                            </svg>
+                        </div>
+                        <div class="skill-content">
+                            <h4>React.js</h4>
+                            <div class="skill-level">Expert - 95%</div>
+                            <div class="skill-tags">
+                                <span>Redux</span>
+                                <span>Next.js</span>
+                                <span>Hooks</span>
+                            </div>
+                        </div>
+                        <div class="skill-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i>Component Architecture</li>
+                                <li><i class="fas fa-check"></i>State Management</li>
+                                <li><i class="fas fa-check"></i>Performance Optimization</li>
+                                <li><i class="fas fa-check"></i>Server-Side Rendering</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="skill-icon-wrapper">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <svg class="skill-circle" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" />
+                                <circle class="progress" cx="50" cy="50" r="45" data-percent="90" />
+                            </svg>
+                        </div>
+                        <div class="skill-content">
+                            <h4>JavaScript</h4>
+                            <div class="skill-level">Expert - 90%</div>
+                            <div class="skill-tags">
+                                <span>ES6+</span>
+                                <span>TypeScript</span>
+                                <span>jQuery</span>
+                            </div>
+                        </div>
+                        <div class="skill-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i>Modern ES6+ Features</li>
+                                <li><i class="fas fa-check"></i>Async Programming</li>
+                                <li><i class="fas fa-check"></i>DOM Manipulation</li>
+                                <li><i class="fas fa-check"></i>Design Patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vue.js -->
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="skill-icon-wrapper">
+                            <div class="skill-icon">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                            <svg class="skill-circle" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" />
+                                <circle class="progress" cx="50" cy="50" r="45" data-percent="85" />
+                            </svg>
+                        </div>
+                        <div class="skill-content">
+                            <h4>Vue.js</h4>
+                            <div class="skill-level">Intermediate - 85%</div>
+                            <div class="skill-tags">
+                                <span>Composition API</span>
+                                <span>Vue Router</span>
+                                <span>Vuex</span>
+                            </div>
+                        </div>
+                        <div class="skill-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i>Reactivity</li>
+                                <li><i class="fas fa-check"></i>Component Architecture</li>
+                                <li><i class="fas fa-check"></i>Server-Side Rendering</li>
+                                <li><i class="fas fa-check"></i>Testing</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="skills-category" data-aos="fade-up">
+                    <div class="category-header">
+                        <div class="header-icon">
                             <i class="fas fa-server"></i>
-                            <span>MongoDB</span>
                         </div>
+                        <h3>Backend Development</h3>
+                        <p>Building scalable server-side applications</p>
                     </div>
-                </div>
-    
-                <div class="skill-category">
-                    <h4>Design & Tools</h4>
-                    <div class="skill-items">
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                            <i class="fab fa-figma"></i>
-                            <span>Figma</span>
-                        </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                        </div>
-                      
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Responsive</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
+                    <div class="skills-grid">
+                        <!-- Node.js -->
+                        <div class="skill-card" data-aos="zoom-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fab fa-node-js"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="88" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Node.js</h4>
+                                <div class="skill-level">Advanced - 88%</div>
+                                <div class="skill-tags">
+                                    <span>Express</span>
+                                    <span>MongoDB</span>
+                                    <span>REST APIs</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>RESTful API Design</li>
+                                    <li><i class="fas fa-check"></i>Database Integration</li>
+                                    <li><i class="fas fa-check"></i>Authentication</li>
+                                    <li><i class="fas fa-check"></i>Microservices</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="85" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Python</h4>
+                                <div class="skill-level">Advanced - 85%</div>
+                                <div class="skill-tags">
+                                    <span>Django</span>
+                                    <span>Flask</span>
+                                    <span>FastAPI</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>Web Frameworks</li>
+                                    <li><i class="fas fa-check"></i>Data Processing</li>
+                                    <li><i class="fas fa-check"></i>API Development</li>
+                                    <li><i class="fas fa-check"></i>Automation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="85" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Python</h4>
+                                <div class="skill-level">Advanced - 85%</div>
+                                <div class="skill-tags">
+                                    <span>Django</span>
+                                    <span>Flask</span>
+                                    <span>FastAPI</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>Web Frameworks</li>
+                                    <li><i class="fas fa-check"></i>Data Processing</li>
+                                    <li><i class="fas fa-check"></i>API Development</li>
+                                    <li><i class="fas fa-check"></i>Automation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Design & Tools -->
+                <div class="skills-category" data-aos="fade-up">
+                    <div class="category-header">
+                        <div class="header-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Design & Tools</h3>
+                        <p>Creating beautiful user experiences</p>
+                    </div>
+
+                    <div class="skills-grid">
+                        <!-- UI/UX -->
+                        <div class="skill-card" data-aos="zoom-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="92" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>UI/UX Design</h4>
+                                <div class="skill-level">Expert - 92%</div>
+                                <div class="skill-tags">
+                                    <span>Figma</span>
+                                    <span>Adobe XD</span>
+                                    <span>Sketch</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>Wireframing</li>
+                                    <li><i class="fas fa-check"></i>Prototyping</li>
+                                    <li><i class="fas fa-check"></i>User Research</li>
+                                    <li><i class="fas fa-check"></i>Design Systems</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Development Tools -->
+                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="90" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Development Tools</h4>
+                                <div class="skill-level">Advanced - 90%</div>
+                                <div class="skill-tags">
+                                    <span>Git</span>
+                                    <span>Docker</span>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>Version Control</li>
+                                    <li><i class="fas fa-check"></i>CI/CD</li>
+                                    <li><i class="fas fa-check"></i>Cloud Services</li>
+                                    <li><i class="fas fa-check"></i>DevOps</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Development Tools -->
+                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <svg class="skill-circle" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" />
+                                    <circle class="progress" cx="50" cy="50" r="45" data-percent="90" />
+                                </svg>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Development Tools</h4>
+                                <div class="skill-level">Advanced - 90%</div>
+                                <div class="skill-tags">
+                                    <span>Git</span>
+                                    <span>Docker</span>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i>Version Control</li>
+                                    <li><i class="fas fa-check"></i>CI/CD</li>
+                                    <li><i class="fas fa-check"></i>Cloud Services</li>
+                                    <li><i class="fas fa-check"></i>DevOps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="section-title" data-aos="fade-up">
-            <h2>Featured Projects</h2>
-            <div class="title-bar"></div>
-        </div>
-        
-        <div class="projects-grid" id="projectsContainer">
-            <!-- Initial Projects -->
-            <div class="visible-projects">
+    <section id="projects" class="projects-section">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <!-- <span class="section-badge">Portfolio</span> -->
+                <div class="header-line"></div>
+                <h2>Featured Projects</h2>
+                <p>Showcasing my recent work</p>
+            </div>
+
+            <div class="projects-grid">
                 <!-- Project Card 1 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card" data-aos="fade-up">
                     <div class="project-image">
-                        <a href="project-details.html?project=task-management">
-                            <img src="project1/2.png" alt="Project 2">
-                            <div class="project-overlay"></div>
-                        </a>
+                        <img src="project1/1.png" alt="E-commerce Platform">
+                        <div class="project-hover">
+                            <div class="project-links">
+                                <a href="#" class="project-link live" data-tooltip="Live Preview" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link github" data-tooltip="View Code" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Task Management App</h3>
-                        <p>A collaborative task management tool with real-time updates.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/codewithpanda28/Template-Site.git" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                            <a href="https://codewithpanda.netlify.app/" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3>E-Commerce Platform</h3>
+                            <div class="project-badge">Featured</div>
+                        </div>
+                        <p>A modern e-commerce platform with advanced features and seamless user experience.</p>
+                        <div class="tech-stack">
+                            <span><i class="fab fa-react"></i>React</span>
+                            <span><i class="fab fa-node-js"></i>Node.js</span>
+                            <span><i class="fas fa-database"></i>MongoDB</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project Card 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <a href="project-details.html?project=ai-content-platform">
-                            <img src="project2/1.png" alt="Project 3">
-                            <div class="project-overlay"></div>
-                        </a>
+                        <img src="project2/1.png" alt="Social Media App">
+                        <div class="project-hover">
+                            <div class="project-links">
+                                <a href="#" class="project-link live" data-tooltip="Live Preview" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link github" data-tooltip="View Code" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3> Old Book Buy/Sell Platform</h3>
-                        <p>A Next.js-based platform to buy and sell used books with authentication, search, and responsive design.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/codewithpanda28/Book_Mart.git" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3>Social Media App</h3>
+                            <div class="project-badge">New</div>
+                        </div>
+                        <p>Real-time social networking platform with chat and post features.</p>
+                        <div class="tech-stack">
+                            <span><i class="fab fa-react"></i>Next.js</span>
+                            <span><i class="fas fa-bolt"></i>Socket.io</span>
+                            <span><i class="fas fa-fire"></i>Firebase</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project Card 3 -->
-                <div class="project-card" data-aos="fade-up">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <a href="project-details.html?project=news-blog">
-                            <img src="project3/news-blog.png" alt="Project 1">
-                            <div class="project-overlay"></div>
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>CWP - News & Blog</h3>
-                        <p>A React-based platform for news and blogging with category filters, weather updates, and bookmarking.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/codewithpanda28/News-Blog.git" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                            <a href="https://cwp-news-blog.netlify.app/" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hidden Projects (Initially Hidden) -->
-            <div class="hidden-projects" style="display: none;">
-                <!-- Additional Project Cards will be here -->
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-image">
-                        <a href="project-details.html?project=news-blog">
-                            <img src="project3/news-blog.png" alt="Project 4">
-                            <div class="project-overlay"></div>
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>CWP - News & Blog</h3>
-                        <p>A React-based platform for news and blogging with category filters, weather updates, and bookmarking.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/codewithpanda28/News-Blog.git" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                            <a href="https://cwp-news-blog.netlify.app/" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- View More Button -->
-        <!-- <div class="view-more-container" data-aos="fade-up">
-            <button id="viewMoreBtn" class="btn primary">
-                <i class="fas fa-folder-open"></i>
-                View More Projects
-            </button>
-        </div> -->
-
-        <style>
-            .projects-grid {
-                display: grid;
-                gap: 2rem;
-                padding: 2rem;
-            }
-
-            .visible-projects, .hidden-projects {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-            }
-
-            .project-card {
-                background: var(--card-bg, #ffffff);
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
-
-            .project-card:hover {
-                transform: translateY(-5px);
-            }
-
-            .view-more-container {
-                text-align: center;
-                margin-top: 2rem;
-                padding: 1rem;
-            }
-
-            #viewMoreBtn {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.8rem;
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-                border-radius: 8px;
-                background: var(--primary-color, #007bff);
-                color: white;
-                border: none;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            #viewMoreBtn:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-
-            #viewMoreBtn i {
-                font-size: 1.2rem;
-            }
-
-            .hidden-projects {
-                opacity: 0;
-                height: 0;
-                overflow: hidden;
-                transition: opacity 0.5s ease, height 0.5s ease;
-            }
-
-            .hidden-projects.show {
-                opacity: 1;
-                height: auto;
-            }
-        </style>
-    </section>
-
-    
-
-  
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-title" data-aos="fade-up">
-            <h2>Get In Touch</h2>
-            <div class="title-bar"></div>
-        </div>
-
-        <div class="contact-container">
-            <div class="contact-info" data-aos="fade-right">
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>codewithpanda28@gmail.com</p>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p>+91 8252472186</p>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Jharkhand, India</p>
-                </div>
-                <div class="contact-card">
-                    <a href="https://www.youtube.com/@NexCodeUI?themeRefresh=1" target="_blank">
-                    <i class="fab fa-youtube"></i></a>
-                    <h3>NexCodeUI</h3>
-                    <p>Subscribe</p>
-                </div>
-            </div>
-
-            <form class="contact-form" data-aos="fade-left" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
-                    <span class="focus-border"></span>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
-                    <span class="focus-border"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    <span class="focus-border"></span>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                    <span class="focus-border"></span>
-                </div>
-                <button type="submit" class="submit-btn">
-                    <span>Send Message</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-                <div class="form-status"></div>
-            </form>
-
-         
-        </div>
-    </section>
-
-    <!-- Project Modal -->
-    <div class="modal-overlay">
-        <div class="modal">
-            <button class="modal-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="modal-images">
-                        <img class="modal-image active" src="" alt="Project Image">
-                        <div class="modal-thumbnails">
-                            <img src="" alt="Thumbnail 1" class="thumbnail active">
-                            <img src="" alt="Thumbnail 2" class="thumbnail">
-                            <img src="" alt="Thumbnail 3" class="thumbnail">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <h2 class="modal-title"></h2>
-                    <p class="modal-description"></p>
-                    <div class="modal-info">
-                        <div class="info-item">
-                            <h3>Technologies</h3>
-                            <div class="modal-tags"></div>
-                        </div>
-                        <div class="info-item">
-                            <h3>Project Links</h3>
-                            <div class="modal-links">
-                                <a href="#" class="modal-link primary" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                        <img src="project3/news-blog.png" alt="News Blog">
+                        <div class="project-hover">
+                            <div class="project-links">
+                                <a href="#" class="project-link live" data-tooltip="Live Preview" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="modal-link secondary" target="_blank">
-                                    <i class="fab fa-github"></i> View Code
+                                <a href="#" class="project-link github" data-tooltip="View Code" target="_blank">
+                                    <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3>News Blog Platform</h3>
+                            <div class="project-badge">Latest</div>
+                        </div>
+                        <p>Modern blogging platform with advanced content management system.</p>
+                        <div class="tech-stack">
+                            <span><i class="fab fa-vuejs"></i>Vue.js</span>
+                            <span><i class="fab fa-node-js"></i>Express</span>
+                            <span><i class="fas fa-database"></i>PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <!-- <span class="section-badge">Contact</span> -->
+                <div class="header-line"></div>
+                <h2>Let's Connect</h2>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Email</h3>
+                                <p>contact@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Location</h3>
+                                <p>New York, USA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-connect">
+                        <h3>Connect With Me</h3>
+                        <div class="social-grid">
+                            <a href="#" class="social-item github">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="social-item linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-item twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-item instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-item youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                            <a href="#" class="social-item discord">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord</span>
+                            </a>
+                            <a href="#" class="social-item dribbble">
+                                <i class="fab fa-dribbble"></i>
+                                <span>Dribbble</span>
+                            </a>
+                            <a href="#" class="social-item behance">
+                                <i class="fab fa-behance"></i>
+                                <span>Behance</span>
+                            </a>
+                            <a href="#" class="social-item medium">
+                                <i class="fab fa-medium-m"></i>
+                                <span>Medium</span>
+                            </a>
+                            <a href="#" class="social-item stackoverflow">
+                                <i class="fab fa-stack-overflow"></i>
+                                <span>Stack Overflow</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" data-aos="fade-left">
+                    <div class="form-header">
+                        <h3>Send Message</h3>
+                        <p>I'll get back to you as soon as possible</p>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input type="text" id="name" required>
+                            <label for="name">Full Name</label>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" required>
+                            <label for="email">Email Address</label>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="subject" required>
+                        <label for="subject">Subject</label>
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <textarea id="message" required></textarea>
+                        <label for="message">Your Message</label>
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+
+                    <button type="submit" class="send-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this after your existing stack-items div -->
+    <div class="stack-modal">
+        <div class="stack-modal-content">
+            <div class="modal-header">
+                <h3>All Technologies</h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-grid">
+                <div class="modal-stack-item" data-tooltip="TypeScript" style="transition-delay: 0.1s;">
+                    <i class="fab fa-js"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Angular" style="transition-delay: 0.2s;">
+                    <i class="fab fa-angular"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Vue.js" style="transition-delay: 0.3s;">
+                    <i class="fab fa-vuejs"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="PHP" style="transition-delay: 0.4s;">
+                    <i class="fab fa-php"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Laravel" style="transition-delay: 0.5s;">
+                    <i class="fab fa-laravel"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Sass" style="transition-delay: 0.6s;">
+                    <i class="fab fa-sass"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="AWS" style="transition-delay: 0.7s;">
+                    <i class="fab fa-aws"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Docker" style="transition-delay: 0.8s;">
+                    <i class="fab fa-docker"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Git" style="transition-delay: 0.9s;">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+                <div class="modal-stack-item" data-tooltip="Linux" style="transition-delay: 1s;">
+                    <i class="fab fa-linux"></i>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Resume Modal -->
-    <!-- <div id="resumeModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="resume-container">
-                <embed src="resume/Screenshot 2025-02-14 221448.png" type="application/pdf" width="100%" height="600px" />
-            </div>
-        </div>
-    </div> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -517,7 +961,7 @@
         });
 
         // Typed.js initialization
-        var typed = new Typed('.typed-text', {
+        var typed = new Typed('.typed', {
             strings: ['Web Developer', 'UI/UX Designer', 'Full Stack Developer'],
             typeSpeed: 50,
             backSpeed: 30,
@@ -534,7 +978,7 @@
         body.setAttribute('data-theme', savedTheme);
         themeSelect.value = savedTheme;
 
-        themeSelect.addEventListener('change', function() {
+        themeSelect.addEventListener('change', function () {
             const selectedTheme = this.value;
             body.setAttribute('data-theme', selectedTheme);
             localStorage.setItem('selectedTheme', selectedTheme);
@@ -551,19 +995,19 @@
         const resumeModal = document.getElementById('resumeModal');
         const closeModal = document.querySelector('.close-modal');
 
-        resumeBtn.onclick = function() {
+        resumeBtn.onclick = function () {
             resumeModal.style.display = "block";
             resumeModal.classList.add('modal-open');
         }
 
-        closeModal.onclick = function() {
+        closeModal.onclick = function () {
             resumeModal.classList.remove('modal-open');
             setTimeout(() => {
                 resumeModal.style.display = "none";
             }, 300);
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == resumeModal) {
                 resumeModal.classList.remove('modal-open');
                 setTimeout(() => {
@@ -576,19 +1020,19 @@
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.querySelector('.form-status');
 
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
-            
+
             try {
                 const response = await fetch('contact.php', {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 const result = await response.json();
-                
+
                 if (result.success) {
                     formStatus.innerHTML = '<div class="success-message">Message sent successfully!</div>';
                     contactForm.reset();
@@ -602,28 +1046,13 @@
 
         // Project card click handler
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const projectId = this.dataset.projectId;
                 window.location.href = `project-details.html?id=${projectId}`;
             });
         });
 
-        // Mobile Menu Toggle
-        const menuBtn = document.querySelector('.menu-btn');
-        const navItems = document.querySelector('.nav-items');
         
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('open');
-            navItems.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!menuBtn.contains(e.target) && !navItems.contains(e.target)) {
-                menuBtn.classList.remove('open');
-                navItems.classList.remove('active');
-            }
-        });
 
         // View More Button
         const viewMoreBtn = document.getElementById('viewMoreBtn');
@@ -633,7 +1062,12 @@
             hiddenProjects.classList.add('show');
             viewMoreBtn.style.display = 'none';
         });
+
+   
+     
+   
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
