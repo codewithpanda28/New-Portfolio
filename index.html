@@ -273,11 +273,11 @@
                                 </div>
                             </a>
                             <div class="format-options">
-                                <a href="resume.pdf" class="format-option pdf" target="_blank">
+                                <a href="resume/resume.pdf" class="format-option pdf" target="_blank">
                                     <i class="fas fa-file-pdf"></i>
                                     <span>PDF Format</span>
                                 </a>
-                                <a href="resume.jpg" class="format-option image" target="_blank">
+                                <a href="resume/resume.png" class="format-option image" target="_blank">
                                     <i class="fas fa-file-image"></i>
                                     <span>Image Format</span>
                                 </a>
@@ -893,7 +893,7 @@
                     </div>
                 </div>
 
-                <form class="contact-form" data-aos="">
+                <form class="contact-form" data-aos="" action="mailto:codewithpanda28@gmail.com" method="POST" enctype="text/plain">
                     <div class="form-header">
                         <h3>Send Message</h3>
                         <p>I'll get back to you as soon as possible</p>
@@ -901,25 +901,25 @@
 
                     <div class="form-group">
                         <div class="input-wrapper">
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" name="name" required>
                             <label for="name">Full Name</label>
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="input-wrapper">
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" name="email" required>
                             <label for="email">Email Address</label>
                             <i class="fas fa-envelope"></i>
                         </div>
                     </div>
 
                     <div class="input-wrapper">
-                        <input type="text" id="subject" required>
+                        <input type="text" id="subject" name="subject" required>
                         <label for="subject">Subject</label>
                         <i class="fas fa-pencil-alt"></i>
                     </div>
 
                     <div class="input-wrapper">
-                        <textarea id="message" required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                         <label for="message">Your Message</label>
                         <i class="fas fa-comment-alt"></i>
                     </div>
@@ -931,8 +931,7 @@
                 </form>
             </div>
         </div>
-    </section> 
-
+    </section>
     <!-- Add this after your existing stack-items div -->
     <!-- <div class="stack-modal">
         <div class="stack-modal-content">
