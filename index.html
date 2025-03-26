@@ -26,14 +26,15 @@
             <a href="#" class="logo-wrapper">
                 <span class="logo-text">Code<span class="highlight">Panda</span></span>
             </a>
-    
+
             <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
                 <i class="fas fa-bars" id="menuIcon"></i>
             </button>
-    
+
             <div class="nav-items" id="navItems">
                 <a href="#home" class="nav-link" onclick="closeMenu()">Home</a>
                 <a href="#skills" class="nav-link" onclick="closeMenu()">Skills</a>
+                <a href="#education" class="nav-link" onclick="closeMenu()">Education</a>
                 <a href="#projects" class="nav-link" onclick="closeMenu()">Projects</a>
                 <a href="#contact" class="nav-link" onclick="closeMenu()">Contact</a>
             </div>
@@ -57,7 +58,7 @@
                 transition: transform 0.3s ease-in-out;
                 overflow-x: hidden;
             }
-            
+
             .nav-items.show {
                 transform: translateX(0);
             }
@@ -68,7 +69,7 @@
             const navItems = document.getElementById('navItems');
             const menuIcon = document.getElementById('menuIcon');
             navItems.classList.toggle('show');
-            
+
             if (navItems.classList.contains('show')) {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-times');
@@ -122,13 +123,13 @@
             .nav-content {
                 position: relative;
             }
-            
+
             .menu-btn {
                 display: block;
                 color: #fff;
                 font-size: 24px;
             }
-            
+
             .nav-items {
                 display: none;
                 position: fixed;
@@ -145,29 +146,30 @@
                 z-index: 1000;
                 transition: right 0.3s ease-in-out;
             }
-            
+
             .nav-items.show {
                 display: flex;
                 right: 0;
                 background: #06214a;
                 animation: slideIn 0.3s ease-in-out;
             }
-            
+
             @keyframes slideIn {
                 from {
                     right: -100%;
                 }
+
                 to {
                     right: 0;
                 }
             }
-            
+
             .nav-link {
                 width: 100%;
                 text-align: center;
                 padding: 15px;
                 border-radius: 4px;
-                
+
             }
 
             .nav-link:hover {
@@ -175,7 +177,7 @@
                 transform: none;
             }
         }
-    </style>    
+    </style>
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-wrapper">
@@ -409,10 +411,13 @@
                         </div>
                         <div class="skill-details">
                             <ul>
-                                <li><i class="fas fa-check"></i>Mastery of ES6+ (Arrow functions, Spread/Rest, Destructuring)</li>
-                                <li><i class="fas fa-check"></i> Handling asynchronous operations using Promises & Async/Await</li>
-                   
-                                <li><i class="fas fa-check"></i>Event-driven programming for dynamic web applications</li>
+                                <li><i class="fas fa-check"></i>Mastery of ES6+ (Arrow functions, Spread/Rest,
+                                    Destructuring)</li>
+                                <li><i class="fas fa-check"></i> Handling asynchronous operations using Promises &
+                                    Async/Await</li>
+
+                                <li><i class="fas fa-check"></i>Event-driven programming for dynamic web applications
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -441,7 +446,7 @@
                             <ul>
                                 <li><i class="fas fa-check"></i> Reusable component-based architecture</li>
                                 <li><i class="fas fa-check"></i>State management using React Hooks & Context API</li>
-                  
+
                                 <li><i class="fas fa-check"></i>Integrating APIs & fetching data dynamically</li>
                             </ul>
                         </div>
@@ -469,9 +474,10 @@
                         </div>
                         <div class="skill-details">
                             <ul>
-                                <li><i class="fas fa-check"></i>Server-side rendering (SSR) & Static Site Generation (SSG)</li>
+                                <li><i class="fas fa-check"></i>Server-side rendering (SSR) & Static Site Generation
+                                    (SSG)</li>
                                 <li><i class="fas fa-check"></i>Building API routes for backend functionalities</li>
-         
+
                                 <li><i class="fas fa-check"></i>SEO-friendly page optimizations
                                 </li>
                             </ul>
@@ -515,8 +521,9 @@
                                 <ul>
                                     <li><i class="fas fa-check"></i>Building scalable backend services</li>
                                     <li><i class="fas fa-check"></i>Handling asynchronous operations efficiently</li>
-                                    <li><i class="fas fa-check"></i> Optimized API performance with caching & compression</li>
-                
+                                    <li><i class="fas fa-check"></i> Optimized API performance with caching &
+                                        compression</li>
+
                                 </ul>
                             </div>
                         </div>
@@ -544,8 +551,9 @@
                             <div class="skill-details">
                                 <ul>
                                     <li><i class="fas fa-check"></i>Creating RESTful APIs with Express.js</li>
-                                  
-                                    <li><i class="fas fa-check"></i>Session management & authentication (JWT, OAuth)</li>
+
+                                    <li><i class="fas fa-check"></i>Session management & authentication (JWT, OAuth)
+                                    </li>
                                     <li><i class="fas fa-check"></i> Handling errors & optimizing performance</li>
                                 </ul>
                             </div>
@@ -650,7 +658,8 @@
                             <div class="skill-details">
                                 <ul>
                                     <li><i class="fas fa-check"></i> Creating UI/UX wireframes for web & mobile</li>
-                                    <li><i class="fas fa-check"></i>Prototyping interactive designs for user experience</li>
+                                    <li><i class="fas fa-check"></i>Prototyping interactive designs for user experience
+                                    </li>
                                     <li><i class="fas fa-check"></i> Implementing design systems for consistency</li>
                                     <!-- <li><i class="fas fa-check"></i>DevOps</li> -->
                                 </ul>
@@ -680,7 +689,8 @@
                             <div class="skill-details">
                                 <ul>
                                     <li><i class="fas fa-check"></i> Managing repositories & collaborative coding</li>
-                                    <li><i class="fas fa-check"></i>Implementing Git branching strategies (feature, develop, main)</li>
+                                    <li><i class="fas fa-check"></i>Implementing Git branching strategies (feature,
+                                        develop, main)</li>
                                     <li><i class="fas fa-check"></i>Automating deployments using GitHub Actions</li>
                                     <!-- <li><i class="fas fa-check"></i>DevOps</li> -->
                                 </ul>
@@ -693,7 +703,7 @@
 
     </section>
 
-     
+
 
     <!-- Education Section -->
     <section id="education" class="education-section">
@@ -716,29 +726,29 @@
                             <li>Focused on Mathematics & Problem-Solving</li>
                             <li>Developed a strong foundation in logical thinking</li>
                         </ul>
-                        </div>
-                        
-                      
-                        
+                    </div>
+
+
+
                 </div>
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2016-2018</div>
-<h3>S.S.V.M. School</h3>
-<p class="timeline-degree">10th Grade</p>
-<ul class="timeline-achievements">
-    <li>Completed 10th with 65% marks</li>
-    <li>Built early interest in technology</li>
-    <li>Excelled in analytical subjects</li>
-</ul>
-</div>
-
+                        <h3>S.S.V.M. Baghmara School</h3>
+                        <p class="timeline-degree">10th Grade</p>
+                        <ul class="timeline-achievements">
+                            <li>Completed 10th with 65% marks</li>
+                            <li>Built early interest in technology</li>
+                            <li>Excelled in analytical subjects</li>
+                        </ul>
                     </div>
-                </div>
 
-                <!-- Add more education entries as needed -->
+                </div>
             </div>
+
+            <!-- Add more education entries as needed -->
+        </div>
         </div>
     </section>
 
@@ -763,12 +773,11 @@
             transform: translateX(-50%);
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, 
-                rgba(99, 102, 241, 0.1) 0%,
-                #64ffda 50%,
-                rgba(99, 102, 241, 0.1) 100%
-            );
-            
+            background: linear-gradient(180deg,
+                    rgba(99, 102, 241, 0.1) 0%,
+                    #64ffda 50%,
+                    rgba(99, 102, 241, 0.1) 100%);
+
         }
 
         .timeline-item {
@@ -791,7 +800,8 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #64ffda;;
+            background: #64ffda;
+            ;
             box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
         }
 
@@ -855,11 +865,12 @@
             .education-timeline::before {
                 left: 20px;
             }
+
             .timeline-item {
-     
-            margin-bottom: 60px;
-           
-        }
+
+                margin-bottom: 60px;
+
+            }
 
             .timeline-item {
                 width: 100%;
@@ -887,7 +898,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <div class="section-container">
-            <div class="section-header" >
+            <div class="section-header">
                 <!-- <span class="section-badge">Portfolio</span> -->
                 <div class="header-line"></div>
                 <h2>Featured Projects</h2>
@@ -896,15 +907,17 @@
 
             <div class="projects-grid">
                 <!-- Project Card 1 -->
-                <div class="project-card" >
+                <div class="project-card">
                     <div class="project-image">
                         <img src="project1/1.png" alt="E-commerce Platform">
                         <div class="project-hover">
                             <div class="project-links">
-                                <a href="#" class="project-link live" data-tooltip="Live Preview" target="_blank">
+                                <a href="https://codewithpanda.netlify.app/
+                                " class="project-link live" data-tooltip="Live Preview" target="_blank">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link github" data-tooltip="View Code" target="_blank">
+                                <a href="https://github.com/codewithpanda28/Template-Site" class="project-link github"
+                                    data-tooltip="View Code" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -912,14 +925,14 @@
                     </div>
                     <div class="project-info">
                         <div class="project-header">
-                            <h3>E-Commerce Platform</h3>
+                            <h3>Templates Download</h3>
                             <div class="project-badge">Featured</div>
                         </div>
-                        <p>A modern e-commerce platform with advanced features.</p>
+                        <p>A platform that allows users to download templates for various purposes.</p>
                         <div class="tech-stack">
-                            <span><i class="fab fa-react"></i>React</span>
-                            <span><i class="fab fa-node-js"></i>Node.js</span>
-                            <span><i class="fas fa-database"></i>MongoDB</span>
+                            <span><i class="fab fa-html5"></i>HTML</span>
+                            <span><i class="fab fa-css3"></i>CSS</span>
+                            <span><i class="fab fa-js"></i>JavaScript</span>
                         </div>
                     </div>
                 </div>
@@ -933,7 +946,8 @@
                                 <a href="#" class="project-link live" data-tooltip="Live Preview" target="_blank">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link github" data-tooltip="View Code" target="_blank">
+                                <a href="https://github.com/codewithpanda28/Book_Mart" class="project-link github"
+                                    data-tooltip="View Code" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -941,10 +955,10 @@
                     </div>
                     <div class="project-info">
                         <div class="project-header">
-                            <h3>Social Media App</h3>
+                            <h3>Book Mart</h3>
                             <div class="project-badge">New</div>
                         </div>
-                        <p>Real-time social networking platform with chat and post features.</p>
+                        <p>A social media app that allows users to connect with friends and share their thoughts.</p>
                         <div class="tech-stack">
                             <span><i class="fab fa-react"></i>Next.js</span>
                             <span><i class="fas fa-bolt"></i>Socket.io</span>
@@ -954,15 +968,17 @@
                 </div>
 
                 <!-- Project Card 3 -->
-                <div class="project-card" >
+                <div class="project-card">
                     <div class="project-image">
                         <img src="project3/news-blog.png" alt="News Blog">
                         <div class="project-hover">
                             <div class="project-links">
-                                <a href="#" class="project-link live" data-tooltip="Live Preview" target="_blank">
+                                <a href="https://cwp-news-blog.netlify.app/" class="project-link live"
+                                    data-tooltip="Live Preview" target="_blank">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link github" data-tooltip="View Code" target="_blank">
+                                <a href="https://github.com/codewithpanda28/News-Blog" class="project-link github"
+                                    data-tooltip="View Code" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -975,9 +991,9 @@
                         </div>
                         <p>Modern blogging platform with advanced content management system.</p>
                         <div class="tech-stack">
-                            <span><i class="fab fa-vuejs"></i>Vue.js</span>
-                            <span><i class="fab fa-node-js"></i>Express</span>
-                            <span><i class="fas fa-database"></i>PostgreSQL</span>
+                            <span><i class="fab fa-react"></i>Next.js</span>
+                            <span><i class="fab fa-node"></i>Node.js</span>
+                            <span><i class="fas fa-database"></i>MongoDB</span>
                         </div>
                     </div>
                 </div>
@@ -988,8 +1004,8 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="section-container">
-            <div class="section-header" >
-                 <span class="section-badge">Contact</span>
+            <div class="section-header">
+                <span class="section-badge">Contact</span>
                 <div class="header-line"></div>
                 <h2>Let's Connect</h2>
             </div>
@@ -1065,7 +1081,8 @@
                     </div>
                 </div>
 
-                <form class="contact-form" data-aos="" action="mailto:codewithpanda28@gmail.com" method="POST" enctype="text/plain">
+                <form class="contact-form" data-aos="" action="mailto:codewithpanda28@gmail.com" method="POST"
+                    enctype="text/plain">
                     <div class="form-header">
                         <h3>Send Message</h3>
                         <p>I'll get back to you as soon as possible</p>
@@ -1104,10 +1121,9 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
-  
+
+
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-=======
     <!-- Add this after your existing stack-items div -->
     <!-- <div class="stack-modal">
         <div class="stack-modal-content">
@@ -1153,7 +1169,7 @@
     </div> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
->>>>>>> abcca039ff9a20d39e1c4a0d5a9f31e878115ee1
+
     <script>
         // Initialize AOS
         // AOS.init({
@@ -1253,7 +1269,7 @@
             });
         });
 
-        
+
 
         // View More Button
         const viewMoreBtn = document.getElementById('viewMoreBtn');
@@ -1264,9 +1280,9 @@
             viewMoreBtn.style.display = 'none';
         });
 
-   
-     
-   
+
+
+
     </script>
     <script src="script.js"></script>
 </body>
