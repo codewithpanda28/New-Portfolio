@@ -21,6 +21,8 @@
 
 <body>
 
+    
+
     <nav class="navbar">
         <div class="nav-content">
             <a href="#" class="logo-wrapper">
@@ -216,11 +218,11 @@
 
                         <div class="experience-chips">
                             <div class="exp-chip">
-                                <span class="exp-number">3+</span>
+                                <span class="exp-number">1+</span>
                                 <span class="exp-label">Months of Experience</span>
                             </div>
                             <div class="exp-chip">
-                                <span class="exp-number">2+</span>
+                                <span class="exp-number">3+</span>
                                 <span class="exp-label">Projects Completed</span>
                             </div>
                             <div class="exp-chip">
@@ -300,14 +302,14 @@
 
                     <div class="card-body">
                         <div class="profile-image-container">
-                            <img src="assets/5.jpg" alt="Profile" class="profile-image">
+                            <img src="assets/1.jpg" alt="Profile" class="profile-image">
                             <div class="image-decoration"></div>
                         </div>
 
                         <div class="profile-info">
                             <h3 class="profile-name">Akash Kumar</h3>
                             <p class="profile-title">Full Stack Developer</p>
-
+<!-- 
                             <div class="profile-stats">
                                 <div class="stat-item">
                                     <span class="stat-value">23+</span>
@@ -317,7 +319,7 @@
                                     <span class="stat-value">1.19K+</span>
                                     <span class="stat-label">YT Subscribers</span>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="social-links">
@@ -338,7 +340,7 @@
                     </div>
                 </div>
 
-                <div class="achievement-cards">
+                <!-- <div class="achievement-cards">
                     <div class="achievement-card">
                         <div class="achievement-icon">
                             <i class="fas fa-code"></i>
@@ -357,7 +359,7 @@
                             <p>Quick turnaround time for projects</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -722,7 +724,7 @@
                         <h3>D.A.V. Public School</h3>
                         <p class="timeline-degree">12th Grade - PCM (Physics, Chemistry, Mathematics)</p>
                         <ul class="timeline-achievements">
-                            <li>Completed 12th with 56% marks</li>
+                            <!-- <li>Completed 12th with 56% marks</li> -->
                             <li>Focused on Mathematics & Problem-Solving</li>
                             <li>Developed a strong foundation in logical thinking</li>
                         </ul>
@@ -738,7 +740,7 @@
                         <h3>S.S.V.M. Baghmara School</h3>
                         <p class="timeline-degree">10th Grade</p>
                         <ul class="timeline-achievements">
-                            <li>Completed 10th with 65% marks</li>
+                            <!-- <li>Completed 10th with 65% marks</li> -->
                             <li>Built early interest in technology</li>
                             <li>Excelled in analytical subjects</li>
                         </ul>
@@ -1019,7 +1021,7 @@
                             </div>
                             <div class="method-details">
                                 <h3>Email</h3>
-                                <p>codewithpanda28@gmail.com</p>
+                                <p>akashkumar.webdev@gmail.com</p>
                             </div>
                         </div>
 
@@ -1037,11 +1039,11 @@
                     <div class="social-connect">
                         <h3>Connect With Me</h3>
                         <div class="social-grid">
-                            <a href="#" class="social-item github">
+                            <a href="https://github.com/codewithpanda28?tab=repositories" class="social-item github">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
                             </a>
-                            <a href="#" class="social-item linkedin">
+                            <a href="https://www.linkedin.com/in/codewithpanda28/" class="social-item linkedin">
                                 <i class="fab fa-linkedin-in"></i>
                                 <span>LinkedIn</span>
                             </a>
@@ -1049,11 +1051,11 @@
                                 <i class="fab fa-twitter"></i>
                                 <span>Twitter</span>
                             </a> -->
-                            <a href="#" class="social-item instagram">
+                            <a href="https://www.instagram.com/panda_creation_29" class="social-item instagram">
                                 <i class="fab fa-instagram"></i>
                                 <span>Instagram</span>
                             </a>
-                            <a href="#" class="social-item youtube">
+                            <a href="https://www.youtube.com/@NexCodeUI?themeRefresh=1" class="social-item youtube">
                                 <i class="fab fa-youtube"></i>
                                 <span>YouTube</span>
                             </a>
@@ -1179,7 +1181,7 @@
 
         // Typed.js initialization
         var typed = new Typed('.typed', {
-            strings: ['Web Developer', 'UI/UX Designer', 'Full Stack Developer'],
+            strings: ['AI Automation Developer', 'Full Stack Developer'],
             typeSpeed: 50,
             backSpeed: 30,
             backDelay: 2000,
@@ -1243,12 +1245,12 @@
             const formData = new FormData(this);
 
             try {
-                const response = await fetch('contact.php', {
+                const res = await fetch('http://localhost:5001/chat', {
                     method: 'POST',
                     body: formData
                 });
 
-                const result = await response.json();
+                const result = await res.json();
 
                 if (result.success) {
                     formStatus.innerHTML = '<div class="success-message">Message sent successfully!</div>';
@@ -1285,6 +1287,122 @@
 
     </script>
     <script src="script.js"></script>
+
+    <div id="chatbot" style="position:fixed;bottom:20px;right:20px;width:320px;background:#222;color:#fff;border-radius:10px;box-shadow:0 2px 10px #000;z-index:9999;">
+      <div style="padding:10px;font-weight:bold;display:flex;justify-content:space-between;align-items:center;">
+        <span>Chatbot</span>
+        <div>
+          <button id="minimizeBtn" style="background:#64ffda;color:#222;border:none;padding:3px 8px;cursor:pointer;border-radius:3px;font-size:12px;margin-right:5px;">−</button>
+          <button id="clearBtn" style="background:#ff4444;color:#fff;border:none;padding:3px 8px;cursor:pointer;border-radius:3px;font-size:12px;">Clear</button>
+        </div>
+      </div>
+      <div id="chat-content" style="display:block;">
+        <div id="chat-messages" style="height:200px;overflow-y:auto;padding:10px;background:#111;"></div>
+        <form id="chat-form" style="display:flex;border-top:1px solid #333;">
+          <input id="chat-input" type="text" placeholder="Type a message..." style="flex:1;padding:10px;border:none;background:#222;color:#fff;">
+          <button type="submit" style="background:#64ffda;color:#222;border:none;padding:10px 15px;cursor:pointer;">Send</button>
+        </form>
+      </div>
+    </div>
+    <script>
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    // Load chat history from localStorage
+    function loadChatHistory() {
+        const savedChat = localStorage.getItem('chatHistory');
+        if (savedChat) {
+            const chatHistory = JSON.parse(savedChat);
+            chatHistory.forEach(message => {
+                chatMessages.innerHTML += `<div style="margin-bottom:8px;"><b>${message.sender}:</b> ${message.text}</div>`;
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    }
+
+    // Save chat history to localStorage
+    function saveChatHistory(sender, text) {
+        const savedChat = localStorage.getItem('chatHistory');
+        let chatHistory = savedChat ? JSON.parse(savedChat) : [];
+        
+        // Add new message
+        chatHistory.push({ sender, text, timestamp: new Date().toISOString() });
+        
+        // Keep only last 50 messages to prevent localStorage from getting too large
+        if (chatHistory.length > 50) {
+            chatHistory = chatHistory.slice(-50);
+        }
+        
+        localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+    }
+
+    // Clear chat history
+    function clearChatHistory() {
+        localStorage.removeItem('chatHistory');
+        chatMessages.innerHTML = '';
+    }
+
+    // Get button references
+    const clearBtn = document.getElementById('clearBtn');
+    const minimizeBtn = document.getElementById('minimizeBtn');
+    const chatContent = document.getElementById('chat-content');
+    
+    // Set up button event listeners
+    clearBtn.onclick = clearChatHistory;
+    
+    // Minimize/Maximize functionality
+    let isMinimized = false;
+    minimizeBtn.onclick = function() {
+        isMinimized = !isMinimized;
+        if (isMinimized) {
+            chatContent.style.display = 'none';
+            minimizeBtn.textContent = '+';
+            minimizeBtn.title = 'Maximize';
+        } else {
+            chatContent.style.display = 'block';
+            minimizeBtn.textContent = '−';
+            minimizeBtn.title = 'Minimize';
+        }
+    };
+
+    // Load chat history when page loads
+    loadChatHistory();
+
+    chatForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const userMsg = chatInput.value.trim();
+      if (!userMsg) return;
+      
+      // Add user message to chat
+      chatMessages.innerHTML += `<div style="margin-bottom:8px;"><b>You:</b> ${userMsg}</div>`;
+      saveChatHistory('You', userMsg);
+      chatInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      try {
+        // Call backend
+        const res = await fetch('http://localhost:5001/chat', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({message: userMsg})
+        });
+        const data = await res.json();
+        
+        // Add bot response to chat
+        chatMessages.innerHTML += `<div style="margin-bottom:8px;"><b>Bot:</b> ${data.response}</div>`;
+        saveChatHistory('Bot', data.response);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      } catch (error) {
+        const errorMsg = 'Sorry, I encountered an error. Please try again.';
+        chatMessages.innerHTML += `<div style="margin-bottom:8px;color:#ff4444;"><b>Bot:</b> ${errorMsg}</div>`;
+        saveChatHistory('Bot', errorMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        console.error('Chat error:', error);
+      }
+    });
+    </script>
+
 </body>
 
 </html>

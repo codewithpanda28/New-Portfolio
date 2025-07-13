@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Test - LocalStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .test-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-steps {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .test-steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .test-steps li {
+            margin: 5px 0;
+        }
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>🧪 Chat LocalStorage Test</h1>
+        <p>This page demonstrates that your chat history is now saved locally!</p>
+        
+        <div class="test-steps">
+            <h3>📋 Test Steps:</h3>
+            <ol>
+                <li>Go to your main portfolio page (<a href="index.html" target="_blank">index.html</a>)</li>
+                <li>Send a few messages in the chatbot</li>
+                <li><span class="highlight">Refresh the page</span> - your messages should still be there!</li>
+                <li>Try the <strong>Clear</strong> button to remove all chat history</li>
+                <li>Try the <strong>Minimize</strong> button (−) to hide/show the chat</li>
+            </ol>
+        </div>
+        
+        <h3>✨ New Features Added:</h3>
+        <ul>
+            <li><strong>Local Storage:</strong> Chat history persists after page refresh</li>
+            <li><strong>Clear Button:</strong> Remove all chat history</li>
+            <li><strong>Minimize/Maximize:</strong> Hide/show chat window</li>
+            <li><strong>Error Handling:</strong> Better error messages if server is down</li>
+            <li><strong>Message Limit:</strong> Keeps last 50 messages to prevent storage overflow</li>
+        </ul>
+        
+        <h3>🔧 Technical Details:</h3>
+        <ul>
+            <li>Uses <code>localStorage.setItem()</code> to save messages</li>
+            <li>Uses <code>localStorage.getItem()</code> to load messages on page load</li>
+            <li>Messages include timestamp for future enhancements</li>
+            <li>Automatic cleanup prevents localStorage from getting too large</li>
+        </ul>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" style="background: #64ffda; color: #222; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+            🚀 Go to Portfolio & Test Chat
+        </a>
+    </div>
+</body>
+</html> 

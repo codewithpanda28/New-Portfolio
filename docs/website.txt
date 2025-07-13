@@ -1,0 +1,5 @@
+Website Name: CodePanda Portfolio
+Owner: Akash Kumar
+Description: A modern portfolio website for Akash Kumar, featuring projects, skills, education, and contact details.
+Contact: codewithpanda28@gmail.com
+Location: Jharkhand, India
